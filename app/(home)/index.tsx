@@ -1,5 +1,4 @@
-import { Pressable, Text, View } from "react-native";
-import { Link } from "expo-router";
+import { Text, View } from "react-native";
 
 export default function Index() {
   return (
@@ -11,11 +10,6 @@ export default function Index() {
       }}
     >
       <Text>Home page.</Text>
-      <Link href="/user" asChild>
-      <Pressable>
-        <Text>Profile</Text>
-      </Pressable>
-    </Link>
     </View>
   );
 }

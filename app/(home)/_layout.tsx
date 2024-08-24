@@ -16,19 +16,7 @@ export default function HomeLayout() {
         options={{
           tabBarLabel: "",
           tabBarIcon: ({ color, focused }) => (
-            <View
-              style={{
-                width: 40,
-                height: 40,
-                borderRadius: 20, // Makes the background circular
-                backgroundColor: focused ? "#D2E7FD" : "transparent", // Circle background only when focused
-                justifyContent: "center",
-                alignItems: "center",
-                marginTop: 16,
-              }}
-            >
-              <NavIcon name="home" color={color} />
-            </View>
+            <Icon name="home" color={color} focused={focused} />
           ),
         }}
       />
@@ -37,19 +25,7 @@ export default function HomeLayout() {
         options={{
           tabBarLabel: "",
           tabBarIcon: ({ color, focused }) => (
-            <View
-              style={{
-                width: 40,
-                height: 40,
-                borderRadius: 20, // Makes the background circular
-                backgroundColor: focused ? "#D2E7FD" : "transparent", // Circle background only when focused
-                justifyContent: "center",
-                alignItems: "center",
-                marginTop: 16,
-              }}
-            >
-              <NavIcon name="chart-line" color={color} />
-            </View>
+            <Icon name="chart-line" color={color} focused={focused} />
           ),
         }}
       />
@@ -58,19 +34,7 @@ export default function HomeLayout() {
         options={{
           tabBarLabel: "",
           tabBarIcon: ({ color, focused }) => (
-            <View
-              style={{
-                width: 40,
-                height: 40,
-                borderRadius: 20, // Makes the background circular
-                backgroundColor: focused ? "#D2E7FD" : "transparent", // Circle background only when focused
-                justifyContent: "center",
-                alignItems: "center",
-                marginTop: 16,
-              }}
-            >
-              <NavIcon name="envelope" color={color} />
-            </View>
+            <Icon name="envelope" color={color} focused={focused} />
           ),
         }}
       />
@@ -79,22 +43,34 @@ export default function HomeLayout() {
         options={{
           tabBarLabel: "",
           tabBarIcon: ({ color, focused }) => (
-            <View
-              style={{
-                width: 40,
-                height: 40,
-                borderRadius: 20, // Makes the background circular
-                backgroundColor: focused ? "#D2E7FD" : "transparent", // Circle background only when focused
-                justifyContent: "center",
-                alignItems: "center",
-                marginTop: 16,
-              }}
-            >
-              <NavIcon name="user" color={color} />
-            </View>
+            <Icon name="user" color={color} focused={focused} />
           ),
         }}
       />
     </Tabs>
   );
 }
+
+interface IconProps {
+  name: string;
+  focused: boolean;
+  color: string;
+}
+
+const Icon: React.FC<IconProps> = ({ name, focused, color }) => {
+  return (
+    <View
+      style={{
+        width: 40,
+        height: 40,
+        borderRadius: 20, // Makes the background circular
+        backgroundColor: focused ? "#D2E7FD" : "transparent", // Circle background only when focused
+        justifyContent: "center",
+        alignItems: "center",
+        marginTop: 16,
+      }}
+    >
+      <NavIcon name={name} color={color} />
+    </View>
+  );
+};
